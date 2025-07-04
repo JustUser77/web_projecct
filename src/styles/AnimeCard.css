@@ -1,0 +1,76 @@
+.anime-card {
+  background-color: var(--card);
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.image-wrapper {
+  height: 200px;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.anime-info {
+  padding: 0.8rem;
+}
+
+.anime-info h3 {
+  font-size: 1rem;
+  margin: 0 0 0.3rem;
+}
+
+.anime-info p {
+  font-size: 0.8rem;
+  margin: 0.2rem 0;
+  color: #ccc;
+}
+
+.card-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-actions button,
+.card-actions .mal-link {
+  font-size: 0.8rem;
+  color: var(--primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .anime-info h3 {
+    font-size: 0.9rem;
+  }
+
+  .anime-info p {
+    font-size: 0.75rem;
+  }
+
+  .card-actions button,
+  .card-actions .mal-link {
+    font-size: 0.75rem;
+  }
+
+  .image-wrapper {
+    height: 160px;
+  }
+}
