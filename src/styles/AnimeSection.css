@@ -1,0 +1,12 @@
+.anime-section {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.anime-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  padding: 1rem;
+}

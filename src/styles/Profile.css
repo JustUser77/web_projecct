@@ -1,0 +1,171 @@
+/* Layout dasar */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #121212;
+  color: white;
+}
+
+.main-layout {
+  display: flex;
+  flex: 1;
+  min-height: 100%;
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+/* Profil */
+.profile-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 4rem; /* beri ruang untuk footer */
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-header img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid var(--primary, #00bcd4);
+}
+
+.profile-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.profile-header p {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Statistik */
+.profile-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-stats div {
+  text-align: center;
+}
+
+.profile-stats strong {
+  font-size: 1.5rem;
+  display: block;
+}
+
+.profile-stats span {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Tombol aksi */
+.profile-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.profile-actions button {
+  padding: 0.5rem 1rem;
+  background: #2a2a2a;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.profile-actions button:hover {
+  background: var(--primary, #00bcd4);
+}
+
+/* Anime favorit */
+.favorite-anime h3,
+.recent-comments h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.anime-grid a {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+}
+
+.anime-grid img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.anime-grid img:hover {
+  transform: scale(1.05);
+}
+
+.anime-grid p {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Komentar terakhir */
+.recent-comments ul {
+  list-style: none;
+  padding: 0;
+}
+
+.recent-comments li {
+  background: #1e1e1e;
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.recent-comments span {
+  display: block;
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 0.25rem;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .profile-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .anime-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .content {
+    padding: 1rem;
+  }
+}

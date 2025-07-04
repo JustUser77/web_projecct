@@ -1,0 +1,151 @@
+/* Layout dasar */
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start; /* Geser ke kiri */
+  padding: 2rem 2rem;
+}
+
+.watch-wrapper {
+  width: 100%;
+  max-width: 1400px; /* Lebih lebar dari sebelumnya */
+  margin-left: 0;     /* Tidak center */
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Grid dua kolom */
+.watch-grid {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.left-column {
+  flex: 5.5;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-column {
+  flex: 2;
+}
+
+/* Video player */
+.video-wrapper iframe {
+  width: 100%;
+  height: 660px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* Judul anime */
+.anime-title {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Tombol aksi */
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.action-buttons button {
+  padding: 0.5rem 1rem;
+  background: #2a2a2a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.action-buttons button:hover {
+  background: var(--primary);
+}
+
+/* Deskripsi episode */
+.episode-description {
+  background: #1e1e1e;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Form komentar */
+.comment-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.comment-form input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  background: #2a2a2a;
+  color: white;
+}
+
+.comment-form button {
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Daftar komentar */
+.comment-list .comment {
+  background: #1e1e1e;
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.comment-list .comment span {
+  display: block;
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 0.25rem;
+}
+
+/* Sidebar episode */
+.right-column h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.episode-list button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  background: #2a2a2a;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 1rem; /* ⬅️ lebih besar dari default */
+  line-height: 1.4;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.episode-list button:hover {
+  background: #3a3a3a;
+  transform: scale(1.02);
+}
+
+.episode-list button.active {
+  background: var(--primary);
+  font-weight: bold;
+}

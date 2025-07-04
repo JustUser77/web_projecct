@@ -1,0 +1,119 @@
+/* Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Modal Box */
+.login-modal {
+  background: #2c2c2c;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 350px;
+  max-width: 90%;
+  text-align: center;
+  color: #f0f0f0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Title */
+.login-modal h2 {
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+/* Input Field (general) */
+.login-modal input {
+  width: 100%;
+  padding: 0.6rem;
+  margin: 1rem 0;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background: #1a1a1a;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.login-modal input::placeholder {
+  color: #aaa;
+  opacity: 1;
+}
+
+/* Password Wrapper */
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 2.5rem; /* space for eye icon */
+}
+
+/* Eye Icon */
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #ccc;
+  user-select: none;
+}
+
+/* Buttons */
+.modal-buttons button {
+  margin: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--primary, #007bff);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.modal-buttons button:hover {
+  background: #0056b3;
+}
+
+/* Avatar Preview */
+.avatar-preview {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  border: 2px solid #555;
+}
+
+/* Switch Mode Text */
+.switch-mode {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.switch-mode span {
+  color: #00aaff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Close Button (optional) */
+.close-btn {
+  margin-top: 1rem;
+  background: transparent;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+}
+.login-modal {
+  will-change: transform, opacity;
+}
