@@ -36,6 +36,7 @@ export default function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/explore" element={<Explore />} />
               <Route path="/watch" element={<Watch />} />
+              <Route path="/watch/:id" element={<Watch />} />
               <Route path="/music" element={<Music />} />
               <Route path="/about" element={<About />} />
             </Routes>

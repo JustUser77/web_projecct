@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/AnimeCard.css';
 import fallbackImage from '../assets/fallback.jpg';
+import { useNavigate } from 'react-router-dom';
+
 
 function AnimeCard({ anime }) {
   const [isFav, setIsFav] = useState(false);
+  const navigate = useNavigate();
+
+
 
   useEffect(() => {
     const favs = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -11,12 +16,17 @@ function AnimeCard({ anime }) {
   }, [anime.mal_id]);
 
   const toggleFav = () => {
+    e.stopPropagation();
     const favs = JSON.parse(localStorage.getItem('favorites')) || [];
     const updated = favs.includes(anime.mal_id)
       ? favs.filter((id) => id !== anime.mal_id)
       : [...favs, anime.mal_id];
     localStorage.setItem('favorites', JSON.stringify(updated));
     setIsFav(!isFav);
+  };
+
+  const handleCardClick = () => {
+    navigate(`/watch/${anime.mal_id}`); // ✅ fungsi klik
   };
 
   const onImgError = (e) => {
@@ -28,7 +38,7 @@ function AnimeCard({ anime }) {
   const reviews = anime.scored_by?.toLocaleString() || 'N/A';
 
   return (
-    <div className="anime-card">
+    <div className="anime-card" onClick={handleCardClick}>
       <div className="image-wrapper">
         <img
           src={anime.images.jpg.image_url}
