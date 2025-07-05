@@ -7,13 +7,13 @@ import Footer from '../components/Footer';
 import { AppContext } from '../context/AppContext';
 import '../styles/Profile.css';
 
-const defaultAvatar = 'https://i.imgur.com/0y0y0y0.png'; // Ganti dengan avatar default kamu
+const defaultAvatar = 'https://i.imgur.com/WjchBGt.jpeg'; // Ganti dengan avatar default kamu
 
 export default function Profile() {
   const { sidebarVisible } = useContext(AppContext);
 
   const [user, setUser] = useState({
-    name: 'Christian',
+    name: 'Christian Phantomhive',
     bio: 'Penggemar Isekai garis keras',
     avatar: null,
   });
@@ -26,6 +26,8 @@ export default function Profile() {
     const fav = JSON.parse(localStorage.getItem('favorites') || '[]');
     const com = JSON.parse(localStorage.getItem('comments') || '[]');
     const watch = JSON.parse(localStorage.getItem('watched') || '[]');
+
+    console.log('favorites:', fav);
 
     setFavorites(fav);
     setComments(com);
@@ -41,6 +43,9 @@ export default function Profile() {
     alert('Fitur edit profil belum tersedia 😅');
   };
 
+  const [activeTab, setActiveTab] = useState('favorites');
+
+
   return (
     <div className="app">
       <Navbar />
@@ -55,9 +60,8 @@ export default function Profile() {
           >
             <div className="profile-header">
               <img src={user.avatar || defaultAvatar} alt="Avatar" />
-              <h2>{user.name}</h2>
-              <p>{user.bio}</p>
-            </div>
+              <div className="profile-info-wrapper">
+                <h2>{user.name}</h2>
 
             <div className="profile-stats">
               <div><strong>{favorites.length}</strong><span>Favorit</span></div>
@@ -66,12 +70,32 @@ export default function Profile() {
             </div>
 
             <div className="profile-actions">
-              <button onClick={handleEdit}>✏️ Edit Profil</button>
-              <button onClick={clearFavorites}>🗑️ Hapus Favorit</button>
+              <button onClick={handleEdit}>Edit Profil</button>
+              <button onClick={clearFavorites}>Hapus Favorit</button>
             </div>
 
+            <p>{user.bio}</p>
+          </div>
+        </div>
+
+        <div className="profile-tabs">
+          <button
+            className={activeTab === 'favorites' ? 'active' : ''}
+            onClick={() => setActiveTab('favorites')}
+          >
+            ⭐ Favorit
+          </button>
+          <button
+            className={activeTab === 'comments' ? 'active' : ''}
+            onClick={() => setActiveTab('comments')}
+          >
+            💬 Komentar
+          </button>
+        </div>
+
+
+            {activeTab === 'favorites' && (
             <div className="favorite-anime">
-              <h3>Favorit Saya</h3>
               {favorites.length === 0 ? (
                 <p>Belum ada anime favorit.</p>
               ) : (
@@ -85,9 +109,10 @@ export default function Profile() {
                 </div>
               )}
             </div>
+          )}
 
+          {activeTab === 'comments' && (
             <div className="recent-comments">
-              <h3>Komentar Terakhir</h3>
               {comments.length === 0 ? (
                 <p>Belum ada komentar.</p>
               ) : (
@@ -101,6 +126,8 @@ export default function Profile() {
                 </ul>
               )}
             </div>
+          )}
+
           </motion.div>
         </div>
       </div>

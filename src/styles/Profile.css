@@ -1,4 +1,4 @@
-/* Layout dasar */
+/* === Warna dasar & layout utama === */
 .app {
   display: flex;
   flex-direction: column;
@@ -10,7 +10,6 @@
 .main-layout {
   display: flex;
   flex: 1;
-  min-height: 100%;
 }
 
 .content {
@@ -18,44 +17,66 @@
   padding: 2rem;
   overflow-x: hidden;
 }
-
-/* Profil */
 .profile-page {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding-bottom: 4rem; /* beri ruang untuk footer */
+  padding: 1rem 3rem; 
+  font-size: 1.1rem;  
 }
 
 .profile-header {
-  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
   margin-bottom: 2rem;
+  border-bottom: 1px solid #222;
+  padding-bottom: 1.5rem;
 }
 
 .profile-header img {
-  width: 120px;
-  height: 120px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 1rem;
-  border: 3px solid var(--primary, #00bcd4);
+  border: 2px solid #fdfeff;
 }
 
+/* Nama + Bio + Aksi + Statistik disamping foto */
 .profile-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
   margin: 0;
-  font-size: 1.8rem;
 }
 
 .profile-header p {
+  margin: 0.5rem 0 0;
   color: #aaa;
   font-style: italic;
+  font-size: 0.9rem;
+}
+
+.profile-info-wrapper p {
+  font-size: 1.1rem;
+}
+
+.profile-info-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+
+.profile-info-wrapper h2 {
+  font-size: 1.8rem;
+  margin: 0;
 }
 
 /* Statistik */
 .profile-stats {
   display: flex;
-  justify-content: center;
   gap: 2rem;
-  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: #bbb;
+  flex-wrap: wrap;
 }
 
 .profile-stats div {
@@ -63,73 +84,97 @@
 }
 
 .profile-stats strong {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   display: block;
+  color: #ffffff;
 }
 
 .profile-stats span {
   font-size: 0.9rem;
-  color: #aaa;
 }
 
-/* Tombol aksi */
+/* Tombol Aksi */
 .profile-actions {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .profile-actions button {
-  padding: 0.5rem 1rem;
-  background: #2a2a2a;
-  border: none;
-  border-radius: 6px;
+  padding: 0.6rem 1.4rem;
+  background: #1e1e1e;
+  border: 1px solid #3B82F6;
   color: white;
+  border-radius: 6px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .profile-actions button:hover {
-  background: var(--primary, #00bcd4);
+  background: #3B82F6;
+  color: white;
 }
 
-/* Anime favorit */
+/* === TAB: Favorit & Komentar === */
+.favorite-anime,
+.recent-comments {
+  margin-top: 3rem;
+}
+
 .favorite-anime h3,
 .recent-comments h3 {
-  margin-bottom: 1rem;
   font-size: 1.3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
+.favorite-anime h3::before {
+  content: "⭐";
+  font-size: 1.2rem;
+}
+
+.recent-comments h3::before {
+  content: "💬";
+  font-size: 1.2rem;
+}
+
+/* Grid Anime Favorit */
 .anime-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1.2rem;
 }
 
 .anime-grid a {
+  background: #1e1e1e;
+  border-radius: 8px;
   text-decoration: none;
   color: white;
-  text-align: center;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.anime-grid a:hover {
+  transform: scale(1.05);
 }
 
 .anime-grid img {
   width: 100%;
-  border-radius: 8px;
+  height: 180px;
   object-fit: cover;
-  transition: transform 0.2s ease;
-}
-
-.anime-grid img:hover {
-  transform: scale(1.05);
+  border-bottom: 2px solid #3B82F6;
 }
 
 .anime-grid p {
-  margin-top: 0.5rem;
+  text-align: center;
+  padding: 0.5rem;
   font-size: 0.9rem;
 }
 
-/* Komentar terakhir */
+/* Komentar Terakhir */
 .recent-comments ul {
   list-style: none;
   padding: 0;
@@ -137,35 +182,74 @@
 
 .recent-comments li {
   background: #1e1e1e;
-  padding: 0.75rem;
-  border-radius: 6px;
-  margin-bottom: 0.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
 .recent-comments span {
-  display: block;
   font-size: 0.8rem;
   color: #aaa;
-  margin-top: 0.25rem;
+  display: block;
+  margin-top: 0.5rem;
 }
 
-/* Responsif */
+/* === Responsif Mobile === */
 @media (max-width: 768px) {
-  .profile-stats {
+
+  .profile-header {
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 
   .profile-actions {
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+  }
+
+  .profile-stats {
+    justify-content: center;
   }
 
   .anime-grid {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   }
-
-  .content {
-    padding: 1rem;
-  }
 }
+
+/* Tab atas bagian bawah profil */
+.profile-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.profile-tabs button {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1rem;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.profile-tabs button.active {
+  color: #3B82F6;
+  font-weight: 600;
+}
+
+.profile-tabs button.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #3B82F6;
+  border-radius: 2px;
+}
+
